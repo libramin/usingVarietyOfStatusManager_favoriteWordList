@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_favorite_word/setstate/select_word_list.dart';
 
-final Set<WordPair> setSateSelectWords = {};
+final Set<WordPair> setSateSelectWords = {}; //Global, 다른 위젯에서도 사용하기 위해
 
 class SetSateRandomWord extends StatefulWidget {
   const SetSateRandomWord({Key? key}) : super(key: key);
