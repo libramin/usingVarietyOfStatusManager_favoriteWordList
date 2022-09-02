@@ -16,6 +16,12 @@ class _SetSateRandomWordState extends State<SetSateRandomWord> {
   final List<WordPair> randomWords = generateWordPairs().take(25).toList();
 
   @override
+  void dispose() {
+    setSateSelectWords.clear();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(

@@ -19,8 +19,10 @@ class ProviderRandomWord extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => SetStateMyWordList()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const ProviderMyWordList()));
                 },
                 icon: const Icon(CupertinoIcons.list_bullet))
           ],
@@ -28,6 +30,9 @@ class ProviderRandomWord extends StatelessWidget {
         body: ListView.builder(
             itemCount: randomWords.length,
             itemBuilder: (context, index) {
+              bool alreadyContain = context
+                  .watch<SelectNotifier>()
+                  .alreadyContain(randomWords[index]);
               return ListTile(
                   onTap: () {
                     context
@@ -37,19 +42,13 @@ class ProviderRandomWord extends StatelessWidget {
                   title: Text(
                     randomWords[index].toString(),
                     style: TextStyle(
-                        fontWeight: context
-                                .watch<SelectNotifier>()
-                                .alreadyContain(randomWords[index])
+                        fontWeight: alreadyContain
                             ? FontWeight.bold
                             : FontWeight.normal),
                   ),
                   trailing: Icon(
-                    Icons.favorite_outline,
-                    color: context
-                            .watch<SelectNotifier>()
-                            .alreadyContain(randomWords[index])
-                        ? Colors.red
-                        : Colors.black87,
+                    alreadyContain ? Icons.favorite : Icons.favorite_outline,
+                    color: alreadyContain ? Colors.red : Colors.black87,
                   ));
             }));
   }

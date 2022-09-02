@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_favorite_word/provider/select_notifier.dart';
 import 'package:provider/provider.dart';
 
-class SetStateMyWordList extends StatelessWidget {
-  const SetStateMyWordList({Key? key}) : super(key: key);
+class ProviderMyWordList extends StatelessWidget {
+  const ProviderMyWordList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

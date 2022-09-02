@@ -4,6 +4,8 @@ import 'package:my_favorite_word/provider/select_notifier.dart';
 import 'package:my_favorite_word/setstate/random_word.dart';
 import 'package:provider/provider.dart';
 
+import 'getx/getx_random_word.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -48,7 +50,7 @@ class StartScreen extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => SetSateRandomWord()));
+                      MaterialPageRoute(builder: (_) => const SetSateRandomWord()));
                 },
                 child: const Text('setState')),
             const SizedBox(
@@ -57,13 +59,15 @@ class StartScreen extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ProviderRandomWord()));
+                      MaterialPageRoute(builder: (_) => const ProviderRandomWord()));
                 },
                 child: const Text('Provider')),
             const SizedBox(
               height: 10,
             ),
-            TextButton(onPressed: () {}, child: const Text('GetX')),
+            TextButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_)=> const GetxRandomWord()));
+            }, child: const Text('GetX')),
           ],
         ),
       ),
